@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (radio) {
                 radio.checked = true;
                 answerItems.forEach(i => i.style.background = '#f9f9f9');
-                this.style.background = 'var(--dtk-light-blue)';
+                this.style.background = '#E6F2FF';
             }
         });
     });
