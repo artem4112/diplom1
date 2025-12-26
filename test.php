@@ -57,13 +57,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="lesson.php" class="back-home">
                 Назад к уроку
             </a>
-            <h1>Тест: П.Н. Тобуроков</h1>
-            <p>8 вопросов о якутском поэте</p>
+            <h1>Тест: Тобуроков юбиляр</h1>
+            <p>8 вопросов о Тобурокове</p>
         </header>
 
         <div class="test-instructions">
             <h3>Инструкция:</h3>
-            <p>Выберите один правильный ответ из трёх вариантов</p>
+            <p>Выберите 1 правильный ответ из 3 вариантов</p>
         </div>
 
         <form action="test.php" method="POST" id="testForm">
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit" class="submit-test-btn">
                     Завершить тест
                 </button>
-                <p class="test-note">Всего 8 вопросов. После завершения вы получите результат.</p>
+                <p class="test-note">Всего 8 вопросов после завершени вы получите результат</p>
             </div>
         </form>
     </div>

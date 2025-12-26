@@ -60,7 +60,7 @@
                     
                     <div class="speech-bubble">
                         <div class="speech-text" id="characterText">
-                            Привет я перс 123
+                            Привет я перс 123 фывфыв
                         </div>
                         
                         <div class="speech-actions">
