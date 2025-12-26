@@ -1,0 +1,545 @@
+/* ============================================
+   СТИЛИ ДЛЯ ДТК ЦЕНТРА ЧТЕНИЯ ЯКУТСК
+   ============================================ */
+
+/* 1. ОСНОВНЫЕ СТИЛИ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #ffffff;
+    min-height: 100vh;
+    color: #333333;
+    line-height: 1.6;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. ЦВЕТА ДТК ЦЕНТРА ЧТЕНИЯ */
+:root {
+    --dtk-blue: #0066CC;        /* Основной синий */
+    --dtk-light-blue: #E6F2FF;  /* Светло-синий фон */
+    --dtk-dark-blue: #004C99;   /* Темно-синий */
+    --dtk-red: #CC3333;         /* Акцентный красный */
+    --dtk-yellow: #FFCC00;      /* Желтый для выделения */
+    --dtk-gray: #666666;        /* Серый текст */
+    --dtk-light-gray: #F5F5F5;  /* Светлый фон */
+}
+
+/* 3. ШАПКА САЙТА */
+.site-header {
+    background: var(--dtk-blue);
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 0;
+    border-bottom: 5px solid var(--dtk-yellow);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-img {
+    height: 70px;
+    width: auto;
+}
+
+.logo-text h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.logo-text .city {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+.site-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background 0.3s;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 4. ОСНОВНОЙ КОНТЕНТ */
+.main-content {
+    flex: 1;
+    background: white;
+    padding: 0;
+}
+
+/* 5. БЛОК ПИСАТЕЛЯ-ЮБИЛЯРА */
+.anniversary-block {
+    background: var(--dtk-light-blue);
+    padding: 30px 20px;
+    margin: 0;
+    border-bottom: 3px solid var(--dtk-yellow);
+}
+
+.anniversary-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.anniversary-image {
+    width: 180px;
+    height: 240px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.anniversary-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.anniversary-info h2 {
+    color: var(--dtk-dark-blue);
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.anniversary-info p {
+    color: var(--dtk-gray);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.writer-books {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border-left: 4px solid var(--dtk-red);
+}
+
+.writer-books h4 {
+    color: var(--dtk-dark-blue);
+    margin-bottom: 10px;
+}
+
+.writer-books ul {
+    margin-left: 20px;
+    color: var(--dtk-gray);
+}
+
+/* 6. ПЕРСОНАЖ */
+.character-section {
+    padding: 40px 20px;
+    background: white;
+}
+
+.character-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.character-image-container {
+    width: 300px;
+    height: 400px;
+    position: relative;
+}
+
+.character-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.character-image:hover {
+    transform: scale(1.02);
+}
+
+/* 7. ДИАЛОГОВОЕ ОКНО */
+.speech-bubble {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border: 2px solid var(--dtk-light-blue);
+    position: relative;
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 10px 20px 10px 0;
+    border-style: solid;
+    border-color: transparent var(--dtk-light-blue) transparent transparent;
+}
+
+.speech-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--dtk-gray);
+    margin-bottom: 20px;
+    min-height: 100px;
+}
+
+.speech-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.next-btn {
+    background: var(--dtk-blue);
+    color: white;
+}
+
+.next-btn:hover {
+    background: var(--dtk-dark-blue);
+}
+
+.start-btn {
+    background: var(--dtk-red);
+    color: white;
+    padding: 12px 30px;
+    font-size: 16px;
+    display: none; /* Скрыта до конца рассказа */
+}
+
+.start-btn:hover {
+    background: #B32B2B;
+}
+
+/* 8. ПРОГРЕСС РАССКАЗА */
+.story-progress {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.progress-container {
+    background: var(--dtk-light-gray);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.progress-text {
+    color: var(--dtk-dark-blue);
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.progress-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.progress-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #DDD;
+    transition: all 0.3s;
+}
+
+.progress-dot.active {
+    background: var(--dtk-blue);
+    transform: scale(1.2);
+}
+
+/* 9. ИНФОРМАЦИОННЫЕ БЛОКИ (вместо feature-list) */
+.info-blocks {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.info-block {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border-top: 4px solid var(--dtk-blue);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.info-block:hover {
+    transform: translateY(-5px);
+}
+
+.info-block h3 {
+    color: var(--dtk-dark-blue);
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.info-block p {
+    color: var(--dtk-gray);
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.info-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #EEE;
+    color: var(--dtk-gray);
+}
+
+.info-list li:last-child {
+    border-bottom: none;
+}
+
+/* 10. КНОПКА НАЧАЛА ОБУЧЕНИЯ */
+.start-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background: var(--dtk-light-blue);
+    border-radius: 12px;
+    text-align: center;
+    border: 2px dashed var(--dtk-blue);
+}
+
+.start-section h3 {
+    color: var(--dtk-dark-blue);
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.start-section p {
+    color: var(--dtk-gray);
+    margin-bottom: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.primary-btn {
+    display: inline-block;
+    background: var(--dtk-red);
+    color: white;
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    background: #B32B2B;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(204, 51, 51, 0.3);
+}
+
+/* 11. ПОДВАЛ */
+.site-footer {
+    background: var(--dtk-dark-blue);
+    color: white;
+    padding: 30px 20px;
+    margin-top: 40px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.site-footer p {
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+/* 12. СТРАНИЦА УРОКА */
+.lesson-header {
+    background: var(--dtk-blue);
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.lesson-content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.lesson-text {
+    background: var(--dtk-light-blue);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: var(--dtk-gray);
+}
+
+/* 13. СТРАНИЦА ТЕСТА */
+.test-header {
+    background: var(--dtk-blue);
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.test-info {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    background: var(--dtk-light-blue);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.question-block {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    border: 2px solid var(--dtk-light-blue);
+}
+
+/* 14. АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .character-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .speech-bubble::before {
+        display: none;
+    }
+    
+    .anniversary-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .info-blocks {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-link {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+    
+    .logo-text h1 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .speech-bubble {
+        padding: 20px;
+    }
+    
+    .speech-text {
+        font-size: 16px;
+    }
+    
+    .action-btn {
+        width: 100%;
+    }
+    
+    .character-image-container {
+        width: 250px;
+        height: 350px;
+    }
+}
