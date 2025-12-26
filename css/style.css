@@ -1,8 +1,3 @@
-/* ============================================
-   СТИЛИ ДЛЯ ДТК ЦЕНТРА ЧТЕНИЯ ЯКУТСК
-   ============================================ */
-
-/* 1. ОСНОВНЫЕ СТИЛИ */
 * {
     margin: 0;
     padding: 0;
@@ -26,18 +21,16 @@ body {
     flex-direction: column;
 }
 
-/* 2. ЦВЕТА ДТК ЦЕНТРА ЧТЕНИЯ */
 :root {
-    --dtk-blue: #0066CC;        /* Основной синий */
-    --dtk-light-blue: #E6F2FF;  /* Светло-синий фон */
-    --dtk-dark-blue: #004C99;   /* Темно-синий */
-    --dtk-red: #CC3333;         /* Акцентный красный */
-    --dtk-yellow: #FFCC00;      /* Желтый для выделения */
-    --dtk-gray: #666666;        /* Серый текст */
-    --dtk-light-gray: #F5F5F5;  /* Светлый фон */
+    --dtk-blue: #0066CC;
+    --dtk-light-blue: #E6F2FF;
+    --dtk-dark-blue: #004C99;
+    --dtk-red: #CC3333;
+    --dtk-yellow: #FFCC00;
+    --dtk-gray: #666666;
+    --dtk-light-gray: #F5F5F5;
 }
 
-/* 3. ШАПКА САЙТА */
 .site-header {
     background: var(--dtk-blue);
     color: white;
@@ -62,9 +55,16 @@ body {
     gap: 20px;
 }
 
-.logo-img {
+.logo-img-placeholder {
+    width: 70px;
     height: 70px;
-    width: auto;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dtk-blue);
+    font-weight: bold;
 }
 
 .logo-text h1 {
@@ -98,14 +98,12 @@ body {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* 4. ОСНОВНОЙ КОНТЕНТ */
 .main-content {
     flex: 1;
     background: white;
     padding: 0;
 }
 
-/* 5. БЛОК ПИСАТЕЛЯ-ЮБИЛЯРА */
 .anniversary-block {
     background: var(--dtk-light-blue);
     padding: 30px 20px;
@@ -166,7 +164,6 @@ body {
     color: var(--dtk-gray);
 }
 
-/* 6. ПЕРСОНАЖ */
 .character-section {
     padding: 40px 20px;
     background: white;
@@ -200,7 +197,6 @@ body {
     transform: scale(1.02);
 }
 
-/* 7. ДИАЛОГОВОЕ ОКНО */
 .speech-bubble {
     flex: 1;
     min-width: 300px;
@@ -260,14 +256,13 @@ body {
     color: white;
     padding: 12px 30px;
     font-size: 16px;
-    display: none; /* Скрыта до конца рассказа */
+    display: none;
 }
 
 .start-btn:hover {
     background: #B32B2B;
 }
 
-/* 8. ПРОГРЕСС РАССКАЗА */
 .story-progress {
     max-width: 1200px;
     margin: 20px auto;
@@ -307,7 +302,6 @@ body {
     transform: scale(1.2);
 }
 
-/* 9. ИНФОРМАЦИОННЫЕ БЛОКИ (вместо feature-list) */
 .info-blocks {
     max-width: 1200px;
     margin: 40px auto;
@@ -353,56 +347,6 @@ body {
     color: var(--dtk-gray);
 }
 
-.info-list li:last-child {
-    border-bottom: none;
-}
-
-/* 10. КНОПКА НАЧАЛА ОБУЧЕНИЯ */
-.start-section {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 30px;
-    background: var(--dtk-light-blue);
-    border-radius: 12px;
-    text-align: center;
-    border: 2px dashed var(--dtk-blue);
-}
-
-.start-section h3 {
-    color: var(--dtk-dark-blue);
-    margin-bottom: 15px;
-    font-size: 22px;
-}
-
-.start-section p {
-    color: var(--dtk-gray);
-    margin-bottom: 25px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.primary-btn {
-    display: inline-block;
-    background: var(--dtk-red);
-    color: white;
-    text-decoration: none;
-    padding: 15px 40px;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    transition: all 0.3s;
-    border: none;
-    cursor: pointer;
-}
-
-.primary-btn:hover {
-    background: #B32B2B;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(204, 51, 51, 0.3);
-}
-
-/* 11. ПОДВАЛ */
 .site-footer {
     background: var(--dtk-dark-blue);
     color: white;
@@ -421,49 +365,6 @@ body {
     opacity: 0.9;
 }
 
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-.footer-links a {
-    color: white;
-    text-decoration: none;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
-
-.footer-links a:hover {
-    opacity: 1;
-}
-
-/* 12. СТРАНИЦА УРОКА */
-.lesson-header {
-    background: var(--dtk-blue);
-    color: white;
-    padding: 25px 20px;
-    text-align: center;
-}
-
-.lesson-content {
-    max-width: 1200px;
-    margin: 30px auto;
-    padding: 0 20px;
-}
-
-.lesson-text {
-    background: var(--dtk-light-blue);
-    padding: 25px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    line-height: 1.6;
-    color: var(--dtk-gray);
-}
-
-/* 13. СТРАНИЦА ТЕСТА */
 .test-header {
     background: var(--dtk-blue);
     color: white;
@@ -471,12 +372,11 @@ body {
     text-align: center;
 }
 
-.test-info {
+.test-instructions {
     max-width: 1200px;
     margin: 30px auto;
-    padding: 0 20px;
-    background: var(--dtk-light-blue);
     padding: 20px;
+    background: var(--dtk-light-blue);
     border-radius: 10px;
 }
 
@@ -489,7 +389,26 @@ body {
     border: 2px solid var(--dtk-light-blue);
 }
 
-/* 14. АДАПТИВНОСТЬ */
+.test-submit {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.submit-test-btn {
+    background: var(--dtk-red);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-test-btn:hover {
+    background: #B32B2B;
+}
+
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
@@ -522,24 +441,5 @@ body {
     
     .logo-text h1 {
         font-size: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .speech-bubble {
-        padding: 20px;
-    }
-    
-    .speech-text {
-        font-size: 16px;
-    }
-    
-    .action-btn {
-        width: 100%;
-    }
-    
-    .character-image-container {
-        width: 250px;
-        height: 350px;
     }
 }

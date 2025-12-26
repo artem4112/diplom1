@@ -34,7 +34,6 @@ $lesson = [
 
 $current_part = isset($_GET['part']) ? intval($_GET['part']) : 0;
 if ($current_part >= count($lesson['parts'])) $current_part = count($lesson['parts']) - 1;
-
 $current_lesson = $lesson['parts'][$current_part];
 ?>
 <!DOCTYPE html>
@@ -51,11 +50,11 @@ $current_lesson = $lesson['parts'][$current_part];
         <header class="lesson-header">
             <div class="header-content">
                 <div class="logo-section">
-                    <div class="logo-img-placeholder" style="width: 60px; height: 60px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--dtk-blue); font-weight: bold;">
+                    <div class="logo-img-placeholder">
                         ДТК
                     </div>
                     <div class="logo-text">
-                        <h1 style="font-size: 20px; margin: 0;"><?php echo $lesson['title']; ?></h1>
+                        <h1><?php echo $lesson['title']; ?></h1>
                     </div>
                 </div>
                 
@@ -68,8 +67,8 @@ $current_lesson = $lesson['parts'][$current_part];
 
         <main class="main-content">
             <div class="lesson-content">
-                <div class="character-container" style="margin: 30px 0;">
-                    <div class="character-image-container" style="width: 250px; height: 350px;">
+                <div class="character-container">
+                    <div class="character-image-container">
                         <img src="images/character/<?php echo $current_lesson['character_img']; ?>" 
                              alt="Персонаж" 
                              class="character-image lesson-character"
@@ -78,23 +77,23 @@ $current_lesson = $lesson['parts'][$current_part];
                     
                     <div class="speech-bubble">
                         <div class="speech-text">
-                            <h3 style="color: var(--dtk-dark-blue); margin-top: 0;"><?php echo $current_lesson['title']; ?></h3>
+                            <h3><?php echo $current_lesson['title']; ?></h3>
                             <p><?php echo $current_lesson['content']; ?></p>
                         </div>
                         
                         <div class="speech-actions">
                             <?php if ($current_part > 0): ?>
-                            <a href="lesson.php?part=<?php echo $current_part - 1; ?>" class="action-btn" style="background: var(--dtk-gray); color: white; text-decoration: none;">
+                            <a href="lesson.php?part=<?php echo $current_part - 1; ?>" class="action-btn">
                                 Назад
                             </a>
                             <?php endif; ?>
                             
                             <?php if ($current_part < count($lesson['parts']) - 1): ?>
-                            <a href="lesson.php?part=<?php echo $current_part + 1; ?>" class="action-btn next-btn" style="text-decoration: none;">
+                            <a href="lesson.php?part=<?php echo $current_part + 1; ?>" class="action-btn next-btn">
                                 Далее
                             </a>
                             <?php else: ?>
-                            <a href="test.php" class="action-btn" style="background: var(--dtk-red); color: white; text-decoration: none; padding: 12px 30px;">
+                            <a href="test.php" class="action-btn" style="background: var(--dtk-red);">
                                 Перейти к тесту
                             </a>
                             <?php endif; ?>
@@ -102,7 +101,6 @@ $current_lesson = $lesson['parts'][$current_part];
                     </div>
                 </div>
                 
-                <!-- Прогресс урока -->
                 <div class="story-progress">
                     <div class="progress-container">
                         <div class="progress-text">
@@ -127,11 +125,5 @@ $current_lesson = $lesson['parts'][$current_part];
     </div>
 
     <script src="js/script.js"></script>
-    <script>
-        // Инициализация для страницы урока
-        if (typeof initLessonCharacter === 'function') {
-            initLessonCharacter();
-        }
-    </script>
 </body>
 </html>
