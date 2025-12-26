@@ -1,3 +1,7 @@
+/* ============================================
+   СТИЛИ ДЛЯ ДТК ЦЕНТРА ЧТЕНИЯ ЯКУТСК
+   ============================================ */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +14,6 @@ body {
     min-height: 100vh;
     color: #333333;
     line-height: 1.6;
-    padding: 0;
 }
 
 .container {
@@ -31,11 +34,11 @@ body {
     --dtk-light-gray: #F5F5F5;
 }
 
+/* ШАПКА САЙТА */
 .site-header {
     background: var(--dtk-blue);
     color: white;
     padding: 20px 0;
-    margin-bottom: 0;
     border-bottom: 5px solid var(--dtk-yellow);
 }
 
@@ -98,16 +101,16 @@ body {
     background: rgba(255, 255, 255, 0.1);
 }
 
+/* ОСНОВНОЙ КОНТЕНТ */
 .main-content {
     flex: 1;
     background: white;
-    padding: 0;
 }
 
+/* БЛОК ПИСАТЕЛЯ */
 .anniversary-block {
     background: var(--dtk-light-blue);
     padding: 30px 20px;
-    margin: 0;
     border-bottom: 3px solid var(--dtk-yellow);
 }
 
@@ -164,6 +167,7 @@ body {
     color: var(--dtk-gray);
 }
 
+/* ПЕРСОНАЖ И ДИАЛОГ */
 .character-section {
     padding: 40px 20px;
     background: white;
@@ -182,7 +186,6 @@ body {
 .character-image-container {
     width: 300px;
     height: 400px;
-    position: relative;
 }
 
 .character-image {
@@ -240,6 +243,8 @@ body {
     cursor: pointer;
     font-weight: 500;
     transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .next-btn {
@@ -263,6 +268,7 @@ body {
     background: #B32B2B;
 }
 
+/* ПРОГРЕСС */
 .story-progress {
     max-width: 1200px;
     margin: 20px auto;
@@ -302,51 +308,7 @@ body {
     transform: scale(1.2);
 }
 
-.info-blocks {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.info-block {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    border-top: 4px solid var(--dtk-blue);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: transform 0.3s;
-}
-
-.info-block:hover {
-    transform: translateY(-5px);
-}
-
-.info-block h3 {
-    color: var(--dtk-dark-blue);
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-.info-block p {
-    color: var(--dtk-gray);
-    line-height: 1.5;
-    margin-bottom: 15px;
-}
-
-.info-list {
-    list-style: none;
-    padding: 0;
-}
-
-.info-list li {
-    padding: 8px 0;
-    border-bottom: 1px solid #EEE;
-    color: var(--dtk-gray);
-}
-
+/* ПОДВАЛ */
 .site-footer {
     background: var(--dtk-dark-blue);
     color: white;
@@ -365,6 +327,107 @@ body {
     opacity: 0.9;
 }
 
+/* СТРАНИЦА УРОКА */
+.lesson-header {
+    background: var(--dtk-blue);
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.lesson-content {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.lesson-character-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.lesson-character-image {
+    width: 200px;
+    height: 280px;
+}
+
+.lesson-character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.lesson-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.lesson-text h2 {
+    color: var(--dtk-dark-blue);
+    margin-bottom: 15px;
+}
+
+.lesson-text p {
+    color: var(--dtk-gray);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.lesson-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.lesson-nav-btn {
+    padding: 12px 25px;
+    background: var(--dtk-blue);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.lesson-nav-btn:hover {
+    background: var(--dtk-dark-blue);
+}
+
+.test-btn {
+    background: var(--dtk-red);
+}
+
+.test-btn:hover {
+    background: #B32B2B;
+}
+
+.lesson-progress {
+    margin-top: 40px;
+}
+
+.lesson-progress p {
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--dtk-gray);
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--dtk-light-gray);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--dtk-blue);
+    transition: width 0.3s;
+}
+
+/* СТРАНИЦА ТЕСТА */
 .test-header {
     background: var(--dtk-blue);
     color: white;
@@ -372,43 +435,224 @@ body {
     text-align: center;
 }
 
+.test-header h1 {
+    margin-bottom: 10px;
+}
+
+.test-header p {
+    opacity: 0.9;
+}
+
+.back-home {
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    left: 20px;
+    top: 25px;
+}
+
 .test-instructions {
-    max-width: 1200px;
-    margin: 30px auto;
+    max-width: 800px;
+    margin: 20px auto;
     padding: 20px;
     background: var(--dtk-light-blue);
     border-radius: 10px;
-}
-
-.question-block {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 25px;
-    background: white;
-    border-radius: 10px;
-    border: 2px solid var(--dtk-light-blue);
-}
-
-.test-submit {
     text-align: center;
-    margin: 40px 0;
+}
+
+#testForm {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.test-question {
+    background: white;
+    border: 2px solid var(--dtk-light-blue);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.question-number {
+    color: var(--dtk-blue);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.question-title {
+    color: var(--dtk-dark-blue);
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.answer-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.answer-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.answer-item:hover {
+    border-color: var(--dtk-blue);
+    background: var(--dtk-light-blue);
+}
+
+.answer-item input {
+    margin-right: 12px;
+}
+
+.option-letter {
+    font-weight: 600;
+    margin-right: 8px;
+    color: var(--dtk-blue);
+}
+
+.test-submit-area {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
 }
 
 .submit-test-btn {
-    background: var(--dtk-red);
+    background: var(--dtk-blue);
     color: white;
     border: none;
-    padding: 15px 40px;
+    padding: 14px 35px;
+    font-size: 16px;
     border-radius: 8px;
-    font-size: 18px;
     cursor: pointer;
     transition: background 0.3s;
 }
 
 .submit-test-btn:hover {
-    background: #B32B2B;
+    background: var(--dtk-dark-blue);
 }
 
+.test-note {
+    color: var(--dtk-gray);
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* СТРАНИЦА РЕЗУЛЬТАТА */
+.result-header {
+    background: var(--dtk-blue);
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.result-content {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.result-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.result-card h2 {
+    color: var(--dtk-dark-blue);
+    margin-bottom: 25px;
+}
+
+.result-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--dtk-blue);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: var(--dtk-gray);
+    font-size: 14px;
+}
+
+.result-message {
+    background: var(--dtk-light-blue);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+}
+
+.result-message p {
+    font-size: 18px;
+    color: var(--dtk-dark-blue);
+}
+
+.result-character {
+    margin: 25px 0;
+}
+
+.result-character img {
+    width: 120px;
+    height: 160px;
+    object-fit: contain;
+}
+
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.retry-btn {
+    background: var(--dtk-blue);
+    color: white;
+}
+
+.lesson-btn {
+    background: var(--dtk-gray);
+    color: white;
+}
+
+.print-btn {
+    background: var(--dtk-red);
+    color: white;
+    border: none;
+    font-family: inherit;
+}
+
+.result-date {
+    color: var(--dtk-gray);
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* АДАПТИВНОСТЬ */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
@@ -416,7 +660,8 @@ body {
         text-align: center;
     }
     
-    .character-container {
+    .character-container,
+    .lesson-character-section {
         flex-direction: column;
         text-align: center;
     }
@@ -430,10 +675,6 @@ body {
         text-align: center;
     }
     
-    .info-blocks {
-        grid-template-columns: 1fr;
-    }
-    
     .nav-link {
         padding: 6px 12px;
         font-size: 14px;
@@ -441,5 +682,28 @@ body {
     
     .logo-text h1 {
         font-size: 20px;
+    }
+    
+    .result-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .result-actions {
+        flex-direction: column;
+    }
+    
+    .result-actions .action-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .lesson-navigation {
+        flex-direction: column;
+    }
+    
+    .lesson-nav-btn {
+        width: 100%;
+        text-align: center;
     }
 }

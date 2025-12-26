@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     initCharacterStory();
-    checkCharacterImages();
 });
 
 function initCharacterStory() {
@@ -14,39 +13,29 @@ function initCharacterStory() {
     
     const storyParts = [
         {
-            text: "Здравствуй! Я - книжный помощник ДТК Центра чтения. Давай я расскажу тебе о нашем проекте...",
-            title: "Часть 1 из 7: Знакомство",
+            text: "Здравствуй! Я помощник ДТК Центра чтения. Сейчас пройдём тест о якутском поэте П.Н. Тобурокове.",
+            title: "Часть 1 из 5: Знакомство",
             imageIndex: 0
         },
         {
-            text: "Наша платформа создана, чтобы показать, как интересно и полезно читать книги. Чтение развивает воображение, память и словарный запас.",
-            title: "Часть 2 из 7: Польза чтения",
+            text: "Тест состоит из 8 вопросов. Вам нужно выбрать один правильный ответ из трёх вариантов.",
+            title: "Часть 2 из 5: Правила теста",
             imageIndex: 1
         },
         {
-            text: "В тесте тебя ждут 10 вопросов. Например: 'Сколько минут в день рекомендуется читать детям?' или 'Что такое буккроссинг?'",
-            title: "Часть 3 из 7: Вопросы теста",
+            text: "Вопросы будут о биографии Тобурокова, его творчестве и основных произведениях.",
+            title: "Часть 3 из 5: Темы вопросов",
             imageIndex: 2
         },
         {
-            text: "Также будут вопросы о том, как выбирать книги, почему важно читать вслух и как книги помогают понимать других людей.",
-            title: "Часть 4 из 7: Темы вопросов",
-            imageIndex: 1
-        },
-        {
-            text: "После прохождения теста ты получишь сертификат ДТК Центра чтения с твоим результатом. Его можно распечатать или сохранить.",
-            title: "Часть 5 из 7: Сертификат",
+            text: "После прохождения вы увидите результат и сможете распечатать сертификат.",
+            title: "Часть 4 из 5: Результат",
             imageIndex: 3
         },
         {
-            text: "А еще я расскажу тебе о писателях-юбилярах и посоветую интересные книги для чтения. У нас есть рекомендации для разного возраста.",
-            title: "Часть 6 из 7: Рекомендации",
+            text: "Готовы проверить свои знания? Нажмите 'Начать тест' для перехода к вопросам.",
+            title: "Часть 5 из 5: Начало",
             imageIndex: 4
-        },
-        {
-            text: "Отлично! Теперь ты знаешь, что тебя ждет. Готов проверить свои знания о чтении и книгах?",
-            title: "Часть 7 из 7: Начало обучения",
-            imageIndex: 0
         }
     ];
     
@@ -60,14 +49,18 @@ function initCharacterStory() {
     const nextBtn = document.getElementById('nextBtn');
     const startBtn = document.getElementById('startBtn');
     
-    for (let i = 0; i < totalParts; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'progress-dot';
-        if (i === 0) dot.classList.add('active');
-        progressDots.appendChild(dot);
+    if (progressDots) {
+        for (let i = 0; i < totalParts; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'progress-dot';
+            if (i === 0) dot.classList.add('active');
+            progressDots.appendChild(dot);
+        }
     }
     
     function updateStory() {
+        if (!characterText || !progressText) return;
+        
         const currentPart = storyParts[currentStoryIndex];
         
         characterText.textContent = currentPart.text;
@@ -86,11 +79,11 @@ function initCharacterStory() {
         });
         
         if (currentStoryIndex === totalParts - 1) {
-            nextBtn.style.display = 'none';
-            startBtn.style.display = 'inline-block';
+            if (nextBtn) nextBtn.style.display = 'none';
+            if (startBtn) startBtn.style.display = 'inline-block';
         } else {
-            nextBtn.style.display = 'inline-block';
-            startBtn.style.display = 'none';
+            if (nextBtn) nextBtn.style.display = 'inline-block';
+            if (startBtn) startBtn.style.display = 'none';
         }
     }
     
@@ -124,42 +117,22 @@ function initCharacterStory() {
         }, 300);
     };
     
-    updateStory();
+    if (characterText && progressText) {
+        updateStory();
+    }
 }
 
-function checkCharacterImages() {
-    console.log('Проверка изображений для ДТК Центра чтения...');
-    
-    const characterImages = [
-        'images/character/char1.png',
-        'images/character/char2.png',
-        'images/character/char3.png',
-        'images/character/char4.png',
-        'images/character/char5.png'
-    ];
-    
-    let loadedCount = 0;
-    const totalImages = characterImages.length + 1;
-    
-    function checkImage(src, name) {
-        return new Promise((resolve) => {
-            const img = new Image();
-            img.onload = function() {
-                loadedCount++;
-                resolve(true);
-            };
-            img.onerror = function() {
-                loadedCount++;
-                resolve(false);
-            };
-            img.src = src;
+// Выбор ответов в тесте
+document.addEventListener('DOMContentLoaded', function() {
+    const answerItems = document.querySelectorAll('.answer-item');
+    answerItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const radio = this.querySelector('input[type="radio"]');
+            if (radio) {
+                radio.checked = true;
+                answerItems.forEach(i => i.style.background = '#f9f9f9');
+                this.style.background = 'var(--dtk-light-blue)';
+            }
         });
-    }
-    
-    Promise.all([
-        checkImage('images/writer.jpg', 'Изображение писателя'),
-        ...characterImages.map((src, index) => checkImage(src, `Персонаж ${index + 1}`))
-    ]).then(results => {
-        const successCount = results.filter(r => r).length;
     });
-}
+});

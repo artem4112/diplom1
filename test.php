@@ -2,16 +2,14 @@
 session_start();
 
 $questions = [
-    ['question' => 'Что развивает регулярное чтение книг?', 'answers' => ['Только память', 'Воображение, память и словарный запас', 'Только грамотность'], 'correct' => 1],
-    ['question' => 'Сколько минут в день рекомендуется читать детям?', 'answers' => ['5-10 минут', '20-30 минут', 'Более 1 часа'], 'correct' => 1],
-    ['question' => 'Как книги помогают понимать других людей?', 'answers' => ['Не помогают', 'Показывают разные характеры и ситуации', 'Только если это книги по психологии'], 'correct' => 1],
-    ['question' => 'Что такое "буккроссинг"?', 'answers' => ['Переплет книг', 'Обмен книгами между читателями', 'Новый жанр литературы'], 'correct' => 1],
-    ['question' => 'Как выбрать интересную книгу?', 'answers' => ['Только по обложке', 'По аннотации, отзывам и рекомендациям', 'По толщине книги'], 'correct' => 1],
-    ['question' => 'Что дает чтение перед сном?', 'answers' => ['Мешает спать', 'Помогает расслабиться и уснуть', 'Не влияет на сон'], 'correct' => 1],
-    ['question' => 'Какой жанр книг рассказывает о вымышленных мирах?', 'answers' => ['Детектив', 'Фантастика', 'Биография'], 'correct' => 1],
-    ['question' => 'Почему важно читать вслух?', 'answers' => ['Чтобы все слышали', 'Для развития дикции и выразительности', 'Не важно, можно читать про себя'], 'correct' => 1],
-    ['question' => 'Что делать, если слово в книге непонятно?', 'answers' => ['Пропустить его', 'Посмотреть в словаре', 'Придумать свое значение'], 'correct' => 1],
-    ['question' => 'Как часто стоит посещать библиотеку?', 'answers' => ['Раз в год', '1-2 раза в месяц', 'Только по необходимости'], 'correct' => 1]
+    ['question' => 'Год рождения П.Н. Тобурокова?', 'answers' => ['1913', '1914', '1915'], 'correct' => 0],
+    ['question' => 'Народный поэт какой республики?', 'answers' => ['Якутии', 'Бурятии', 'Татарстана'], 'correct' => 0],
+    ['question' => 'Кем был Тобуроков?', 'answers' => ['Писатель и поэт', 'Художник', 'Музыкант'], 'correct' => 0],
+    ['question' => 'Одна из его известных книг?', 'answers' => ['На берегах Вилюя', 'Анна Каренина', 'Мастер и Маргарита'], 'correct' => 0],
+    ['question' => 'Тема его творчества?', 'answers' => ['Природа Якутии', 'Городская жизнь', 'Космос'], 'correct' => 0],
+    ['question' => 'Книга "Долина белых..."?', 'answers' => ['Журавлей', 'Медведей', 'Оленей'], 'correct' => 0],
+    ['question' => 'Сколько лет со дня рождения в 2024?', 'answers' => ['110 лет', '100 лет', '90 лет'], 'correct' => 0],
+    ['question' => 'Жанр "Цветы на снегу"?', 'answers' => ['Поэзия', 'Детектив', 'Фантастика'], 'correct' => 0]
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -49,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тест знаний - ДТК Центр чтения</title>
+    <title>Тест: Тобуроков - ДТК Центр чтения</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -57,41 +55,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         <header class="test-header">
             <a href="lesson.php" class="back-home">
-                Вернуться к уроку
+                Назад к уроку
             </a>
-            <h1>Тест знаний</h1>
-            <p>Проверь, что ты запомнил из урока!</p>
+            <h1>Тест: П.Н. Тобуроков</h1>
+            <p>8 вопросов о якутском поэте</p>
         </header>
 
         <div class="test-instructions">
             <h3>Инструкция:</h3>
-            <p>1. Прочитай каждый вопрос внимательно</p>
-            <p>2. Выбери один правильный ответ из трех вариантов</p>
-            <p>3. Всего 10 вопросов</p>
-            <p>4. После завершения ты получишь сертификат!</p>
+            <p>Выберите один правильный ответ из трёх вариантов</p>
         </div>
 
-        <form action="test.php" method="POST" id="testForm" class="main-content">
+        <form action="test.php" method="POST" id="testForm">
             <?php foreach ($questions as $index => $question): ?>
-            <div class="question-block">
-                <div class="question-counter">
-                    Вопрос <?php echo $index + 1; ?> из 10
-                </div>
+            <div class="test-question">
+                <div class="question-number">Вопрос <?php echo $index + 1; ?></div>
+                <h3 class="question-title"><?php echo $question['question']; ?></h3>
                 
-                <h3 class="question-text">
-                    <?php echo $question['question']; ?>
-                </h3>
-                
-                <div class="answers-container">
+                <div class="answer-options">
                     <?php foreach ($question['answers'] as $answer_index => $answer): ?>
-                    <div class="answer-option">
+                    <div class="answer-item">
                         <input type="radio" 
                                name="q<?php echo $index; ?>" 
                                id="q<?php echo $index; ?>_a<?php echo $answer_index; ?>"
                                value="<?php echo $answer_index; ?>"
                                required>
                         <label for="q<?php echo $index; ?>_a<?php echo $answer_index; ?>">
-                            <?php echo chr(65 + $answer_index); ?>. <?php echo $answer; ?>
+                            <span class="option-letter"><?php echo chr(65 + $answer_index); ?></span>
+                            <span class="option-text"><?php echo $answer; ?></span>
                         </label>
                     </div>
                     <?php endforeach; ?>
@@ -99,10 +90,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <?php endforeach; ?>
             
-            <div class="test-submit">
+            <div class="test-submit-area">
                 <button type="submit" class="submit-test-btn">
-                    Завершить тест и увидеть результат
+                    Завершить тест
                 </button>
+                <p class="test-note">Всего 8 вопросов. После завершения вы получите результат.</p>
             </div>
         </form>
     </div>
