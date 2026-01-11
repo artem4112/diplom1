@@ -61,42 +61,91 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p>8 вопросов о Тобурокове</p>
         </header>
 
-        <div class="test-instructions">
-            <h3>Инструкция:</h3>
-            <p>Выберите 1 правильный ответ из 3 вариантов</p>
-        </div>
+<!-- ... остальной код без изменений до вопросов ... -->
 
-        <form action="test.php" method="POST" id="testForm">
-            <?php foreach ($questions as $index => $question): ?>
-            <div class="test-question">
-                <div class="question-number">Вопрос <?php echo $index + 1; ?></div>
-                <h3 class="question-title"><?php echo $question['question']; ?></h3>
-                
-                <div class="answer-options">
-                    <?php foreach ($question['answers'] as $answer_index => $answer): ?>
-                    <div class="answer-item">
-                        <input type="radio" 
-                               name="q<?php echo $index; ?>" 
-                               id="q<?php echo $index; ?>_a<?php echo $answer_index; ?>"
-                               value="<?php echo $answer_index; ?>"
-                               required>
-                        <label for="q<?php echo $index; ?>_a<?php echo $answer_index; ?>">
-                            <span class="option-letter"><?php echo chr(65 + $answer_index); ?></span>
-                            <span class="option-text"><?php echo $answer; ?></span>
-                        </label>
-                    </div>
-                    <?php endforeach; ?>
-                </div>
+<div class="test-instructions">
+    <h3>Внимание, внимание!</h3>
+    <p>Тест-викторина про Тобурокова! 8 вопросов — как 8 глав приключенческой книги. Выбирай самый интересный ответ!</p>
+</div>
+
+<form action="test.php" method="POST" id="testForm">
+    <?php 
+    $updatedQuestions = [
+        [
+            'question' => 'В каком году родился Петр Тобуроков, наш юбиляр?',
+            'answers' => ['1913 год', '1914 год — именно этот!', '1915 год'],
+            'correct' => 1
+        ],
+        [
+            'question' => 'Почётное звание Тобурокова — народный поэт...?',
+            'answers' => ['Якутии — правильно!', 'Бурятии', 'Татарстана'],
+            'correct' => 0
+        ],
+        [
+            'question' => 'Кем был Тобуроков, кроме писателя?',
+            'answers' => ['Прекрасным поэтом — да!', 'Художником', 'Музыкантом'],
+            'correct' => 0
+        ],
+        [
+            'question' => 'Какая книга точно принадлежит перу Тобурокова?',
+            'answers' => ['На берегах Вилюя — его знаменитая книга!', 'Анна Каренина', 'Мастер и Маргарита'],
+            'correct' => 0
+        ],
+        [
+            'question' => 'О чем чаще всего писал Тобуроков?',
+            'answers' => ['О природе Якутии — её красоте!', 'О городской жизни', 'О космосе'],
+            'correct' => 0
+        ],
+        [
+            'question' => 'Закончи название: "Долина белых..."?',
+            'answers' => ['Журавлей — красиво же!', 'Медведей', 'Оленей'],
+            'correct' => 0
+        ],
+        [
+            'question' => 'Сколько лет исполняется Тобурокову в 2024 году?',
+            'answers' => ['110 лет — юбилей!', '100 лет', '90 лет'],
+            'correct' => 0
+        ],
+        [
+            'question' => 'К какому жанру относится "Цветы на снегу"?',
+            'answers' => ['Поэзия — лирическая и красивая!', 'Детектив', 'Фантастика'],
+            'correct' => 0
+        ]
+    ];
+    
+    foreach ($updatedQuestions as $index => $question): 
+    ?>
+    <div class="test-question">
+        <div class="question-number">Вопрос <?php echo $index + 1; ?> из 8</div>
+        <h3 class="question-title"><?php echo $question['question']; ?></h3>
+        
+        <div class="answer-options">
+            <?php foreach ($question['answers'] as $answer_index => $answer): ?>
+            <div class="answer-item">
+                <input type="radio" 
+                       name="q<?php echo $index; ?>" 
+                       id="q<?php echo $index; ?>_a<?php echo $answer_index; ?>"
+                       value="<?php echo $answer_index; ?>"
+                       required>
+                <label for="q<?php echo $index; ?>_a<?php echo $answer_index; ?>">
+                    <span class="option-letter"><?php echo chr(65 + $answer_index); ?></span>
+                    <span class="option-text"><?php echo $answer; ?></span>
+                </label>
             </div>
             <?php endforeach; ?>
-            
-            <div class="test-submit-area">
-                <button type="submit" class="submit-test-btn">
-                    Завершить тест
-                </button>
-                <p class="test-note">Всего 8 вопросов после завершени вы получите результат</p>
-            </div>
-        </form>
+        </div>
+    </div>
+    <?php endforeach; ?>
+    
+    <div class="test-submit-area">
+        <button type="submit" class="submit-test-btn pulse">
+            Готово! Посмотрим результат!
+        </button>
+        <p class="test-note">После отправки ты увидишь, какой ты эксперт по Тобурокову!</p>
+    </div>
+</form>
+
+<!-- ... остальной код без изменений ... -->
     </div>
 </body>
 </html>
